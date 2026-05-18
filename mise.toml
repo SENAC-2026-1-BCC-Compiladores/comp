@@ -3,7 +3,11 @@ zig = "0.16.0"
 
 [tasks.clean]
 description = "Remove os artefatos de compilação e cache do Zig"
-run = "rm -rf zig-out/ .zig-cache/ .zig-pkg/"
+run = "rm -rf zig-out/ .zig-cache/ .zig-pkg/ docs/"
+
+[tasks.docs]
+description = "Gerar documentação do projeto"
+run = "zig build-exe src/main.zig -femit-docs -fno-emit-bin"
 
 [tasks.windows]
 description = "Criar release para Windows"
