@@ -4,3 +4,11 @@ zig = "0.16.0"
 [tasks.clean]
 description = "Remove os artefatos de compilação e cache do Zig"
 run = "rm -rf zig-out/ .zig-cache/ .zig-pkg/"
+
+[tasks.windows]
+description = "Criar release para Windows"
+run = "zig build -Doptimize=ReleaseSafe -Dtarget=x86_64-windows-gnu"
+
+[tasks.linux]
+description = "Criar release para Linux"
+run = "zig build -Doptimize=ReleaseSafe -Dtarget=x86_64-linux-musl"
