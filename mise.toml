@@ -1,2 +1,6 @@
 [tools]
 zig = "0.16.0"
+
+[tasks.clean]
+description = "Remove os artefatos de compilação e cache do Zig"
+run = "rm -rf zig-out/ .zig-cache/ .zig-pkg/"
