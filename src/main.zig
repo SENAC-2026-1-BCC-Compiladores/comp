@@ -6,13 +6,14 @@ const token = @import("token.zig");
 const ast = @import("ast.zig");
 const parser = @import("parser.zig");
 const eval = @import("eval.zig");
+const codegen = @import("codegen.zig");
 
 pub fn main(init: std.process.Init) !void {
     const gpa = init.gpa;
 
     const args = try init.minimal.args.toSlice(gpa);
+    //defer gpa.free(args);
 
-    defer gpa.free(args);
     const config = try cli.configParser(args);
 
     if (config.help) {
